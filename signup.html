@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
         <script src="script.js" defer></script>
     </head>
     <body>
@@ -25,6 +26,12 @@
                     <button>Log In</button>
                 </a>
             </nav>
+
+            <a href="https://github.com/COP4331C-Group-15/Small-Project" target="_blank">
+                <div class="cc15-logo">
+                    <p>CC15</p>
+                </div>
+            </a>
 
             <div class="sub-container">
                 <div class="signup-container">
@@ -54,7 +61,7 @@
                     <br><br>
     
                     <div class="input-icon-container">
-                        <input type="text" id="signup-password" class="text-input" name="signup-password" placeholder="Password">
+                        <input type="password" id="signup-password" class="text-input" name="signup-password" placeholder="Password">
                         <img src="images/lock_icon.png" class="input-accompany-icon">
                     </div>
                     <div class="line-for-input"></div>
@@ -62,14 +69,14 @@
                     <br><br>
     
                     <div class="input-icon-container">
-                        <input type="text" id="reenter-password" class="text-input" name="reenter-password" placeholder="Re-enter Password">
+                        <input type="password" id="reenter-password" class="text-input" name="reenter-password" placeholder="Re-enter Password">
                         <img src="images/lock_icon.png" class="input-accompany-icon">
                     </div>
                     <div class="line-for-input"></div>
                     
                     <br><br>
     
-                    <button id="signup-button">Sign Up</button>
+                    <button id="signup-button" onclick="doRegister()">Sign Up</button>
     
                     <br>
     
@@ -79,6 +86,10 @@
                             <p><strong>Log In</strong></p>
                         </a>
                     </div>
+                </div>
+
+                <div id="signup-result-container">
+                    <p id="signup-result"></p>
                 </div>
             </div>
 
