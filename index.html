@@ -2,13 +2,14 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Contact Connect 15</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <script src="script.js" defer></script>
     </head>
     <body>
@@ -60,7 +61,9 @@
                     <div class="login-container-signup-link">
                         <p>Don't have an account?&nbsp;&nbsp;</p>
                         <a href="./signup.html">
-                            <p><strong>Sign Up</strong></p>
+                            <button>
+                                <p><strong>Sign Up</strong></p>
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -68,11 +71,43 @@
                 <div id="login-result-container">
                     <p id="login-result"></p>
                 </div>
+
+                <div id="login-username-accessibility" class="fade-popup accessibility-text">
+                    <p>Username:</p>
+                </div>
+
+                <div id="login-password-accessibility" class="fade-popup accessibility-text">
+                    <p>Password:</p>
+                </div>
             </div>
 
             <div class="footer">
                 <p>Website created by the amazing Group 15</p>
             </div>
         </div>
+
+        <script>
+            const inputBoxLoginUser = document.getElementById("login-username");
+            const inputBoxLoginPass = document.getElementById("login-password");
+
+            const inputBoxLoginUserPopup = document.getElementById("login-username-accessibility");
+            const inputBoxLoginPassPopup = document.getElementById("login-password-accessibility");
+
+            inputBoxLoginUser.addEventListener('focus', () => {
+                inputBoxLoginUserPopup.classList.add('active');
+            });
+
+            inputBoxLoginUser.addEventListener('blur', () => {
+                inputBoxLoginUserPopup.classList.remove('active');
+            });
+
+            inputBoxLoginPass.addEventListener('focus', () => {
+                inputBoxLoginPassPopup.classList.add('active');
+            });
+
+            inputBoxLoginPass.addEventListener('blur', () => {
+                inputBoxLoginPassPopup.classList.remove('active');
+            });
+        </script>
     </body>
 </html>
