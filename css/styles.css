@@ -1,0 +1,95 @@
+body
+{
+    margin: 0%;
+    font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.container
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(45deg, rgb(255, 75, 75), purple, blue);
+    background-size: 300% 300%;
+    animation: color 8s ease-in-out infinite;
+}
+
+@keyframes color
+{
+    0%
+    {
+        background-position: 0 50%;
+    }
+
+    50%
+    {
+        background-position: 100% 50%;
+    }
+
+    100%
+    {
+        background-position: 0 50%;
+    }
+}
+
+.sub-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4
+{
+    font-size: 40px;
+}
+
+.navbar
+{
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 40%);
+    box-shadow: 4px 8px 10px rgba(73, 73, 73, 0.2);
+    z-index: 100;
+}
+
+.navbar button
+{
+    font-size: 24px;
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    margin-right: 80px;
+    cursor: pointer;
+}
+
+.input-accompany-icon
+{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.cc15-logo
+{
+    
+}
+
+.footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+    color: aliceblue;
+    background-color: rgba(48, 48, 48, 90%);
+    box-shadow: 4px 8px 10px rgba(73, 73, 73, 0.2);
+}

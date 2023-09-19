@@ -2,7 +2,7 @@
 
 	$inData = getRequestInfo();
 	
-	$searchResults = "";
+	$contactSearchResults = "";
 	$searchCount = 0;
 
 	// connection to the database
@@ -14,7 +14,7 @@
 	else
 	{
 		// this is the search contact part
-		$stmt = $conn->prepare("select Name from Users where Name like ? and UserID=?");
+		$stmt = $conn->prepare("select * from Contacts WHERE (FirstName like ? OR LastName like ?) AND UserID=?");
 		$userName = "%" . $inData["search"] . "%";
 		$stmt->bind_param("ss", $userName, $inData["userId"]);
 		$stmt->execute();
@@ -25,10 +25,12 @@
 		{
 			if( $searchCount > 0 )
 			{
-				$searchResults .= ",";
+				$contactSearchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$contactSearchResults .= '{"FirstName" : "' . $row["FirstName"]. '", "LastName" : "' . $row["LastName"]. 
+				'", "PhoneNumber" : "' . $row["PhoneNumber"].  '", "EmailAddress" : "' . $row["EmailAddress"]. 
+				'", "UserID" : "' . $row["UserID"]. '", "ID" : "' . $row["ID"]. '"}';
 		}
 		
 		if( $searchCount == 0 )
@@ -37,7 +39,7 @@
 		}
 		else
 		{
-			returnWithInfo( $searchResults );
+			returnWithInfo( $contactSearchResults );
 		}
 		
 		$stmt->close();
@@ -61,9 +63,9 @@
 		sendResultInfoAsJson( $retValue );
 	}
 	
-	function returnWithInfo( $searchResults )
+	function returnWithInfo( $contactSearchResults )
 	{
-		$retValue = '{"results":[' . $searchResults . '],"error":""}';
+		$retValue = '{"results":[' . $contactSearchResults . '],"error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
